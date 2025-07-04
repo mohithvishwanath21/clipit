@@ -51,7 +51,7 @@ const Login = () => {
   return (
     <main className="min-h-screen bg-white text-gray-900 py-16 px-6 md:px-12 lg:px-24 max-w-3xl mx-auto">
       <h1 className="text-4xl font-extrabold text-red-600 mb-10 text-center">
-        Login Now!
+        Login
       </h1>
 
       <form onSubmit={handleSubmit} className="space-y-6">

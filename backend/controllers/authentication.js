@@ -33,12 +33,20 @@ export const handleUserLogin = async (req, res) => {
         const token = generateToken(user._id);
 
         // Set HTTP-only cookie
+        // res.cookie("auth_token", token, {
+        //     httpOnly: true,
+        //     secure: process.env.NODE_ENV === "production",
+        //     sameSite: "lax",
+        //     maxAge: 7 * 24 * 60 * 60 * 1000,
+        // })
+
         res.cookie("auth_token", token, {
-            httpOnly: true,
-            secure: process.env.NODE_ENV === "production",
-            sameSite: "lax",
-            maxAge: 7 * 24 * 60 * 60 * 1000,
-        })
+  httpOnly: true,
+  secure: true,              // ✅ required on Render
+  sameSite: "None",          // ✅ must be exactly "None"
+  maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+});
+
 
         // Getting user gro location
         const ip = getClientIp(req);
@@ -103,12 +111,19 @@ export const handleUserSignup = async (req, res) => {
         const token = generateToken(newUser._id);
 
         // Set HTTP-only cookie
+        // res.cookie("auth_token", token, {
+        //     httpOnly: true,
+        //     secure: process.env.NODE_ENV === "production",
+        //     sameSite: "lax",
+        //     maxAge: 7 * 24 * 60 * 60 * 1000,
+        // })
         res.cookie("auth_token", token, {
-            httpOnly: true,
-            secure: process.env.NODE_ENV === "production",
-            sameSite: "lax",
-            maxAge: 7 * 24 * 60 * 60 * 1000,
-        })
+  httpOnly: true,
+  secure: true,              // ✅ required on Render
+  sameSite: "None",          // ✅ must be exactly "None"
+  maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+});
+
 
         const login = new Logins({
             userId: newUser._id,
