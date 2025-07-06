@@ -29,6 +29,8 @@ export async function handleGenerateUrl(req, res) {
         }
         await connectDB();
         const shortId = nanoid(6);
+        console.log("👉 BASE_URL being used:", process.env.BASE_URL);
+
         const shortUrl = `${process.env.BASE_URL}/${shortId}`;
 
         const ip = getClientIp(req);
