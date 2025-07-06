@@ -161,7 +161,8 @@ export const updateProfile = async (req, res) => {
       }
     }
 
-    user.avatar = `/uploads/${req.file.filename}`;
+    user.avatar = `${process.env.BASE_URL}/uploads/${req.file.filename}`;
+
     await user.save();
 
     res.status(200).json({ avatar: user.avatar });
