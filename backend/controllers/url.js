@@ -1,3 +1,7 @@
+
+import dotenv from "dotenv";
+dotenv.config(); // must be at the top
+
 import { nanoid } from "nanoid";
 import urlData from "../models/URL.js";
 import { getClientIp, getLocationFromIp } from "../utils/geoDetails.js";
@@ -25,6 +29,8 @@ export async function handleGenerateUrl(req, res) {
         }
         await connectDB();
         const shortId = nanoid(6);
+        const shortUrl = `${process.env.BASE_URL}/${shortId}`;
+
         const ip = getClientIp(req);
         const userAgent = req.headers["user-agent"];
         const location = await getLocationFromIp(ip);
@@ -44,8 +50,11 @@ export async function handleGenerateUrl(req, res) {
         await newShortUrl.save();
 
         return res.status(201).json({
-            message: "Short URL created successfully"
-        });
+  message: "Short URL created successfully",
+  shortUrl,      // <-- now correct
+  shortId
+});
+
     } catch (err) {
         console.error("Short URL creation error:", err);
         return res.status(500).json({ error: "Something went wrong while creating URL" });
