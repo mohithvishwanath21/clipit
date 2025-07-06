@@ -92,10 +92,15 @@ export default function Profile() {
             className="relative rounded-full overflow-hidden w-40 h-40 cursor-pointer shadow-lg ring-2 ring-red-600 ring-offset-2 transition-transform hover:scale-105"
           >
             <img
-              src={`http://localhost:3000${avatarPreview}`}
-              alt="User avatar"
-              className="w-full h-full object-cover"
-            />
+  src={
+    avatarPreview?.startsWith("http")
+      ? avatarPreview
+      : `${import.meta.env.VITE_BASE_API}${avatarPreview}`
+  }
+  alt="User avatar"
+  className="w-full h-full object-cover"
+/>
+
             <div className="absolute inset-0 bg-red-600 bg-opacity-30 opacity-0 hover:opacity-100 flex items-center justify-center text-white font-medium text-lg transition-opacity">
               Change
             </div>
