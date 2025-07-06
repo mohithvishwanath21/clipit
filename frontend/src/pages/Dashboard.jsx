@@ -306,17 +306,17 @@ const Dashboard = () => {
       <main className="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
 
         {/* Hero Section with Two Buttons */}
-        <section className="text-center mb-20">
-          <h1 className="text-5xl md:text-6xl font-extrabold text-red-600 mb-6">
+        <section className="text-center mb-20 px-2">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-red-600 mb-6 leading-tight">
             Clip It Faster, Share it Smarter!
           </h1>
-          <p className="text-xl max-w-3xl mx-auto text-gray-900 mb-8">
+          <p className="text-lg sm:text-xl max-w-2xl mx-auto text-gray-900 mb-8">
             Create short links in seconds. Share them anywhere. Track their performance with detailed analytics.
           </p>
-          <div className="flex justify-center gap-6 flex-wrap">
+          <div className="flex justify-center gap-4 sm:gap-6 flex-wrap">
             <Link
               to="/create"
-              className="inline-flex items-center bg-red-600 text-white px-8 py-4 rounded-full text-lg font-semibold shadow hover:bg-red-700 transition"
+              className="inline-flex items-center bg-red-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg font-semibold shadow hover:bg-red-700 transition"
             >
               <Rocket className="w-5 h-5 mr-2" />
               Clip It
@@ -324,7 +324,7 @@ const Dashboard = () => {
             </Link>
             <Link
               to="/view"
-              className="inline-flex items-center bg-gray-100 text-red-600 px-8 py-4 rounded-full text-lg font-semibold shadow hover:bg-gray-200 transition"
+              className="inline-flex items-center bg-gray-100 text-red-600 px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg font-semibold shadow hover:bg-gray-200 transition"
             >
               <Rocket className="w-5 h-5 mr-2" />
               Manage URLs
@@ -333,86 +333,70 @@ const Dashboard = () => {
         </section>
 
         {/* Why Choose Section */}
-        <section className="py-16 max-w-7xl mx-auto px-6">
+        <section className="py-16">
           <h2 className="text-3xl font-bold text-center mb-12 text-red-600">
             Why Choose Our URL Shortener
           </h2>
           <div
             ref={sliderRef}
-            className="relative w-full overflow-x-auto whitespace-nowrap scrollbar-hide"
-            style={{ cursor: "default" }}
-            onMouseEnter={() => {
-              isHovered.current = true;
-            }}
-            onMouseLeave={() => {
-              isHovered.current = false;
-            }}
+            className="overflow-x-auto scrollbar-hide sm:scroll-auto"
+            onMouseEnter={() => { isHovered.current = true; }}
+            onMouseLeave={() => { isHovered.current = false; }}
           >
-            {[...cards, ...cards].map((card, index) => (
-              <div
-                key={index}
-                className="inline-block rounded-2xl p-6 mr-6 w-64 align-top border bg-white border-gray-200 hover:shadow-lg text-gray-700 transition break-words"
-              >
-                <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-4 mx-auto bg-red-100">
-                  {card.icon}
+            <div className="flex sm:flex-row flex-col gap-6 sm:gap-4 sm:whitespace-nowrap px-2">
+              {[...cards, ...cards].map((card, index) => (
+                <div
+                  key={index}
+                  className="flex-shrink-0 min-w-[250px] max-w-xs bg-white border border-gray-200 rounded-2xl p-6 hover:shadow-lg text-gray-700 transition"
+                >
+                  <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-4 mx-auto bg-red-100">
+                    {card.icon}
+                  </div>
+                  <h3 className="text-xl font-bold mb-3 text-red-600 text-center">
+                    {card.title}
+                  </h3>
+                  <p className="text-sm text-gray-600 text-center">
+                    {card.description}
+                  </p>
                 </div>
-                <h3 className="text-xl font-bold mb-3 text-red-600 text-center">{card.title}</h3>
-                <p className="text-sm text-gray-600 card-desc text-center">
-                  {card.description}
-                </p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </section>
 
         {/* How It Works Section */}
-        <section className="py-16">
+        <section className="py-16 px-2">
           <h2 className="text-3xl font-bold text-center mb-12">How It Works</h2>
-          <div className="grid md:grid-cols-3 gap-8 text-center">
-            <div>
-              <div className="bg-red-600 text-white w-10 h-10 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
-                1
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 text-center max-w-5xl mx-auto">
+            {[1, 2, 3].map((step, idx) => (
+              <div key={idx}>
+                <div className="bg-red-600 text-white w-10 h-10 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+                  {step}
+                </div>
+                <h3 className="text-lg sm:text-xl font-semibold mb-2">
+                  {step === 1
+                    ? "Paste your long URL"
+                    : step === 2
+                    ? 'Click "Shorten URL"'
+                    : "Share and track"}
+                </h3>
+                <p className="text-gray-600 max-w-xs mx-auto">
+                  {step === 1
+                    ? "Enter your long URL into our shortener input field."
+                    : step === 2
+                    ? "Click the button and get your shortened URL instantly."
+                    : "Share your short URL and track its performance with our analytics."}
+                </p>
               </div>
-              <h3 className="text-xl font-semibold mb-2">Paste your long URL</h3>
-              <p className="text-gray-600 max-w-xs mx-auto">
-                Enter your long URL into our shortener input field.
-              </p>
-            </div>
-            <div>
-              <div className="bg-red-600 text-white w-10 h-10 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
-                2
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Click "Shorten URL"</h3>
-              <p className="text-gray-600 max-w-xs mx-auto">
-                Click the button and get your shortened URL instantly.
-              </p>
-            </div>
-            <div>
-              <div className="bg-red-600 text-white w-10 h-10 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
-                3
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Share and track</h3>
-              <p className="text-gray-600 max-w-xs mx-auto">
-                Share your short URL and track its performance with our analytics.
-              </p>
-            </div>
+            ))}
           </div>
         </section>
       </main>
 
       {/* Extra Styling */}
       <style>{`
-        .scrollbar-hide::-webkit-scrollbar {
-          display: none;
-        }
-        .scrollbar-hide {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-        .card-desc {
-          white-space: normal !important;
-          word-wrap: break-word !important;
-        }
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
       `}</style>
     </div>
   );
