@@ -18,7 +18,8 @@ const URLTable = ({ item, handleCopy, handleShare, handleDelete, handleToggleSta
   setLocalActive(item.isActive);
 }, [item.isActive]);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const shortUrl = `http://localhost:3000/redirect/${item.shortId}`;
+  const shortUrl = `${import.meta.env.VITE_BASE_API}/redirect/${item.shortId}`;
+
 
 
   const handleOpenModal = () => setIsModalOpen(true);
