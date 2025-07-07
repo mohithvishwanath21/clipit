@@ -13,7 +13,7 @@ import userRouter from "./routes/user.js";
 import { secureRoute } from "./middlewares/auth.js";
 import redirectUrlRouter from "./routes/redirecting.js";
 import contactRouter from "./routes/contact.js";
-
+app.use("/avatars", express.static("avatars"));
 // Connect to DB
 connectDB();
 
