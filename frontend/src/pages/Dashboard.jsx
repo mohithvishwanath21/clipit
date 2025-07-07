@@ -343,11 +343,11 @@ const Dashboard = () => {
             onMouseEnter={() => { isHovered.current = true; }}
             onMouseLeave={() => { isHovered.current = false; }}
           >
-            <div className="flex sm:flex-row flex-col gap-6 sm:gap-4 sm:whitespace-nowrap px-2">
+            <div className="flex flex-wrap sm:flex-nowrap gap-6 sm:gap-4 px-2">
               {[...cards, ...cards].map((card, index) => (
                 <div
                   key={index}
-                  className="flex-shrink-0 min-w-[250px] max-w-xs bg-white border border-gray-200 rounded-2xl p-6 hover:shadow-lg text-gray-700 transition"
+                  className="flex-shrink-0 w-full sm:min-w-[250px] sm:max-w-xs bg-white border border-gray-200 rounded-2xl p-6 hover:shadow-lg text-gray-700 transition"
                 >
                   <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-4 mx-auto bg-red-100">
                     {card.icon}
