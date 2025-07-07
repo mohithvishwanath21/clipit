@@ -5,7 +5,7 @@ dotenv.config();
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import path from "path";  // for static file serving
-
+import { fileURLToPath } from "url";
 import { connectDB } from "./connection.js";
 import urlRouter from "./routes/url.js";
 import authRouter from "./routes/authentication.js";
@@ -23,7 +23,10 @@ const app = express();
 // Allow JSON and cookies
 app.use(express.json());
 app.use(cookieParser());
-app.use("/avatars", express.static("avatars"));
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+app.use("/avatars", express.static(path.join(__dirname, "avatars")));
 // ✅ CORS: Allow local & deployed frontend
 const allowedOrigins = [
   "http://localhost:5173",
