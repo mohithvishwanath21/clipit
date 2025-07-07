@@ -27,6 +27,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 app.use("/avatars", express.static(path.join(__dirname, "avatars")));
+console.log("Serving avatars from:", path.join(__dirname, "avatars"));
+
 // ✅ CORS: Allow local & deployed frontend
 const allowedOrigins = [
   "http://localhost:5173",
