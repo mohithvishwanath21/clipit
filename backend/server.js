@@ -13,7 +13,7 @@ import userRouter from "./routes/user.js";
 import { secureRoute } from "./middlewares/auth.js";
 import redirectUrlRouter from "./routes/redirecting.js";
 import contactRouter from "./routes/contact.js";
-app.use("/avatars", express.static("avatars"));
+
 // Connect to DB
 connectDB();
 
@@ -23,7 +23,7 @@ const app = express();
 // Allow JSON and cookies
 app.use(express.json());
 app.use(cookieParser());
-
+app.use("/avatars", express.static("avatars"));
 // ✅ CORS: Allow local & deployed frontend
 const allowedOrigins = [
   "http://localhost:5173",
