@@ -13,6 +13,12 @@ import {
   Mail,
   LayoutDashboard,
   Scale,
+  Grid,
+  Layout,
+  LinkIcon,
+  Link2Icon,
+  Link2Off,
+  ChartBar,
 } from "lucide-react";
 import { FaLink } from "react-icons/fa";
 import { AuthContext } from "../contexts/AuthContext";
@@ -316,10 +322,10 @@ export const LoginSignup = () => (
 );
 
 const navMenu = [
-  { name: "Home", link: "/", icon: <LayoutDashboard className="mr-3 h-5 w-5" /> },
-  { name: "Create Links", link: "/create", icon: <Link2 className="mr-3 h-5 w-5" /> },
-  { name: "View Links", link: "/view", icon: <Eye className="mr-3 h-5 w-5" /> },
-  { name: "Analytics", link: "/analytics", icon: <ChartSpline className="mr-3 h-5 w-5" /> },
+  { name: "Home", link: "/", icon: <Layout className="mr-3 h-5 w-5" /> },
+  { name: "Clipit", link: "/create", icon: <FaLink className="mr-3 h-5 w-5" /> },
+  { name: "Manage URLs", link: "/view", icon: <Eye className="mr-3 h-5 w-5" /> },
+  { name: "Analytics", link: "/analytics", icon: <ChartBar className="mr-3 h-5 w-5" /> },
   { name: "Contact", link: "/contact", icon: <Mail className="mr-3 h-5 w-5" /> },
   { name: "Profile", link: "/profile", icon: <User className="mr-3 h-5 w-5" /> },
   { name: "Home", link: "/", icon: <User className="mr-3 h-5 w-5" /> },
