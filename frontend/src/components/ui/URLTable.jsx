@@ -68,7 +68,6 @@ const URLTable = ({ item, handleCopy, handleShare, handleDelete, handleToggleSta
               >
                 {item.originalUrl}
               </a>
-              <ExternalLink size={14} className="text-gray-400" />
             </div>
           </div>
 
@@ -83,11 +82,7 @@ const URLTable = ({ item, handleCopy, handleShare, handleDelete, handleToggleSta
               >
                 {shortUrl}
               </a>
-              <QrCode
-                size={16}
-                className="text-gray-400 hover:text-red-600 cursor-pointer"
-                onClick={handleOpenModal}
-              />
+              
             </div>
           </div>
 
