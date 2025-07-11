@@ -70,4 +70,17 @@ It was built to help users easily manage their links, with clear controls to ena
 ### 👤 Profile and 📩 Contact Pages
 
 - **Profile Page:** Users can update their password securely  
-- **Contact Page:** Allows users to submit feedback or queries  
+- **Contact Page:** Allows users to submit feedback or queries
+
+## 📸 Screenshots
+
+
+<img width="1723" height="918" alt="Screenshot 2025-07-09 102046" src="https://github.com/user-attachments/assets/ce951d6f-a3e7-4eda-be86-0e0119574907" />
+
+
+<img width="1769" height="920" alt="Screenshot 2025-07-09 102322" src="https://github.com/user-attachments/assets/58fc94b3-0cd0-4512-8694-2e96cc5169a5" />
+
+<img width="1664" height="918" alt="Screenshot 2025-07-09 104226" src="https://github.com/user-attachments/assets/e2e0b94c-915e-4d34-8970-8e80a47deca4" />
+
+
+<img width="1658" height="918" alt="Screenshot 2025-07-09 110925" src="https://github.com/user-attachments/assets/09fd3164-aa3e-44ef-9367-3bc3b3a7defa" />
